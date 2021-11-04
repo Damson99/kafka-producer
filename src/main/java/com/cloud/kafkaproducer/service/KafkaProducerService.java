@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class KafkaProducerService {
+public class KafkaProducerService
+{
 
     @Value("${application.configs.topic.name}")
     private String KAFKA_TOPIC;

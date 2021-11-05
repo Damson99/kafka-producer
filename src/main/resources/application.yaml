@@ -1,13 +1,26 @@
+#spring:
+#  kafka:
+#    producer:
+#      client-id: posinvoice-producer
+#      bootstrap-servers: localhost:9092
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+#      properties:
+#        spring.json.add.type.headers: false
+#application:
+#  configs:
+#    invoice.count: 60
+#    topic.name: pos-topic
 spring:
   kafka:
     producer:
-      client-id: posinvoice-producer
+      client-id: avro-pos-simulator
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
       properties:
-        spring.json.add.type.headers: false
+        schema.registry.url: http://localhost:8081
 application:
   configs:
     invoice.count: 60
-    topic.name: pos-topic
+    topic.name: avro-pos-topic

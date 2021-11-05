@@ -29,7 +29,7 @@ public class InvoiceGenerator {
 
     public InvoiceGenerator()
     {
-        String DATAFILE = "src/main/resources";
+        String DATAFILE = "src/main/resources/data/invoice.json";
         invoiceIndex = new Random();
         invoiceNumber = new Random();
         numberOfItems = new Random();

@@ -15,7 +15,7 @@ public class ProductGenerator {
 
     public ProductGenerator()
     {
-        String DATAFILE = "src/main/resources/data/products.json";
+        String DATAFILE = "src/main/resources/data/product.json";
         ObjectMapper objectMapper = new ObjectMapper();
         random = new Random();
         qty = new Random();

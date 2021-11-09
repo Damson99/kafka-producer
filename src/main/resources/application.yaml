@@ -1,26 +1,20 @@
-#spring:
-#  kafka:
-#    producer:
-#      client-id: posinvoice-producer
-#      bootstrap-servers: localhost:9092
-#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-#      properties:
-#        spring.json.add.type.headers: false
-#application:
-#  configs:
-#    invoice.count: 60
-#    topic.name: pos-topic
 spring:
-  kafka:
-    producer:
-      client-id: avro-pos-simulator
-      bootstrap-servers: localhost:9092
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-      properties:
-        schema.registry.url: http://localhost:8081
-application:
-  configs:
-    invoice.count: 60
-    topic.name: avro-pos-topic
+  cloud:
+    stream:
+      bindings:
+        pos-invoice-input-channel:
+          destination: avro-pos-invoice-topic
+      kafka:
+        streams:
+          binder:
+            brokers: localhost:9092
+            configuration:
+              schema.registry.url: http://localhost:8081
+              # processing.guarantee is set to at_least_once by default.
+              # creating a single listener that will perform atomic operations
+              processing.guarantee: exactly_once
+              default:
+                key:
+                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+                value:
+                  serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde

@@ -5,7 +5,7 @@
   "fields": [
     {"name": "InvoiceNumber","type": ["null","string"]},
     {"name": "CreatedTime","type": ["null","long"]},
-    {"name": "CustomerCardNo","type": ["null","double"]},
+    {"name": "CustomerCardNo","type": ["null","string"]},
     {"name": "TotalAmount","type": ["null","double"]},
     {"name": "NumberOfItems","type": ["null","int"]},
     {"name": "PaymentMethod","type": ["null","string"]},
@@ -19,6 +19,6 @@
     {"name": "CustomerType","type": ["null","string"]},
     {"name": "DeliveryType","type": ["null","string"]},
     {"name": "DeliveryAddress","type": ["null","DeliveryAddress"]},
-    {"name": "InvoiceLineItem","type": {"type": "array", "items": "LineItem"}}
+    {"name": "InvoiceLineItems","type": {"type": "array", "items": "LineItem"}}
   ]
 }

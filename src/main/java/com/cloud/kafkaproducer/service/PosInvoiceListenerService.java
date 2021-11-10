@@ -33,7 +33,7 @@ public class PosInvoiceListenerService {
         hadoopRecordKStream.foreach((key, value) ->
                 log.info(String.format("Hadoop Record: Key: %s | Value: %s", key, value)));
         notificationKStream.foreach((key, value) ->
-                log.info(String.format("Hadoop Record: Key: %s | Value: %s", key, value)));
+                log.info(String.format("Notification: Key: %s | Value: %s", key, value)));
 
         hadoopRecordKStream.to("hadoop-sink-topic");
         notificationKStream.to("loyalty-topic");

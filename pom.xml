@@ -17,7 +17,7 @@
 	<properties>
 		<java.version>15</java.version>
 		<spring-boot-maven-plugin-version>2.5.5</spring-boot-maven-plugin-version>
-		<org.apache.avro.version>1.9.2</org.apache.avro.version>
+		<org.apache.avro.version>1.11.0</org.apache.avro.version>
 		<avro-maven-plugin.version>1.8.2</avro-maven-plugin.version>
 		<spring-cloud-dependencies.version>2020.0.4</spring-cloud-dependencies.version>
 		<spring-boot-maven-plugin.version>2.5.6</spring-boot-maven-plugin.version>
